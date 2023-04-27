@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CorreoController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/enviar-correo', [CorreoController::class, 'enviar_correo'])->name('enviar_correo');
+Route::get('/messages', [MessageController::class, 'index'])->name('messages.list');
+
+
+
